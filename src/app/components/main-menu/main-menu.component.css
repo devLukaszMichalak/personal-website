@@ -1,0 +1,13 @@
+.navbar {
+position: absolute;
+top: 0;
+left: 0;
+right: 0;
+height: 50px;
+display: flex;
+align-items: center;
+background-color: rgba(0, 0, 0, 0.75);
+webkit-backdrop-filter: saturate(200%) blur(20px);
+}
+
+
