@@ -10,4 +10,9 @@ background-color: rgba(0, 0, 0, 0.75);
 webkit-backdrop-filter: saturate(200%) blur(20px);
 }
 
+a,
+a:visited,
+a:hover {
+  text-decoration: none;
+}
 
