@@ -6,6 +6,7 @@ import {MatIconModule} from "@angular/material/icon";
 import {MainMenuComponent} from './components/main-menu/main-menu.component';
 import {Routes, RouterModule} from "@angular/router";
 import {MainPageComponent} from './components/main-page/main-page.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 const routes: Routes = [
   {path: '', component: MainPageComponent},
@@ -21,7 +22,8 @@ const routes: Routes = [
   imports: [
     RouterModule.forRoot(routes),
     BrowserModule,
-    MatIconModule
+    MatIconModule,
+    BrowserAnimationsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
