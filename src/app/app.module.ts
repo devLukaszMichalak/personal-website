@@ -7,17 +7,21 @@ import {MainMenuComponent} from './components/main-menu/main-menu.component';
 import {Routes, RouterModule} from "@angular/router";
 import {MainPageComponent} from './components/main-page/main-page.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { AboutMeComponent } from './components/about-me/about-me.component';
 
 const routes: Routes = [
-  {path: '', component: MainPageComponent},
-  {path: '**', redirectTo: '', pathMatch: 'full'}
+  {path: 'main-page', component: MainPageComponent},
+  {path: 'about-me', component: AboutMeComponent},
+  {path: '', redirectTo: 'main-page', pathMatch: 'full'},
+  {path: '**', redirectTo: 'main-page', pathMatch: 'full'}
 ];
 
 @NgModule({
   declarations: [
     AppComponent,
     MainMenuComponent,
-    MainPageComponent
+    MainPageComponent,
+    AboutMeComponent
   ],
   imports: [
     RouterModule.forRoot(routes),

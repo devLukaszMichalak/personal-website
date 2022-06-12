@@ -102,11 +102,4 @@ footer {
   line-height: 20px;
 }
 
-svg#clouds {
-  position: fixed;
-  bottom: -160px;
-  left: -230px;
-  z-index: -10;
-  width: 1920px;
-}
 
