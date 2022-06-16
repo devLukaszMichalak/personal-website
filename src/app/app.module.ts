@@ -10,10 +10,16 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AboutMeComponent } from './components/about-me/about-me.component';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
+import {MatButtonModule} from "@angular/material/button";
+import { ContactComponent } from './components/contact/contact.component';
+import { MyGitComponent } from './components/my-git/my-git.component';
+import {MatCardModule} from "@angular/material/card";
 
 const routes: Routes = [
   {path: 'main-page', component: MainPageComponent},
   {path: 'about-me', component: AboutMeComponent},
+  {path: 'my-git', component: MyGitComponent},
+  {path: 'contact', component: ContactComponent},
   {path: '', redirectTo: 'main-page', pathMatch: 'full'},
   {path: '**', redirectTo: 'main-page', pathMatch: 'full'}
 ];
@@ -23,7 +29,9 @@ const routes: Routes = [
     AppComponent,
     MainMenuComponent,
     MainPageComponent,
-    AboutMeComponent
+    AboutMeComponent,
+    ContactComponent,
+    MyGitComponent
   ],
   imports: [
     RouterModule.forRoot(routes),
@@ -35,7 +43,9 @@ const routes: Routes = [
       // Register the ServiceWorker as soon as the application is stable
       // or after 30 seconds (whichever comes first).
       registrationStrategy: 'registerWhenStable:30000'
-    })
+    }),
+    MatButtonModule,
+    MatCardModule
   ],
   providers: [],
   bootstrap: [AppComponent]
