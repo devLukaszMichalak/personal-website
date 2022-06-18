@@ -1,1 +1,10 @@
-<p>my-git works!</p>
+<div class="content">
+  <h1>Some of my projects</h1>
+  <table mat-card >
+    <mat-card><tr *ngFor="let repo of repos" >
+      <td >{{repo.name}}</td>
+      <td > <a href="{{repo.html_url}}" target="_blank"> <mat-icon>link</mat-icon> </a> </td>
+    </tr></mat-card>
+  </table>
+
+</div>

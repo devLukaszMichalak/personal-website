@@ -4,16 +4,18 @@ import {BrowserModule} from '@angular/platform-browser';
 import {AppComponent} from './app.component';
 import {MatIconModule} from "@angular/material/icon";
 import {MainMenuComponent} from './components/main-menu/main-menu.component';
-import {Routes, RouterModule} from "@angular/router";
+import {RouterModule, Routes} from "@angular/router";
 import {MainPageComponent} from './components/main-page/main-page.component';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { AboutMeComponent } from './components/about-me/about-me.component';
-import { ServiceWorkerModule } from '@angular/service-worker';
-import { environment } from '../environments/environment';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import {AboutMeComponent} from './components/about-me/about-me.component';
+import {ServiceWorkerModule} from '@angular/service-worker';
+import {environment} from '../environments/environment';
 import {MatButtonModule} from "@angular/material/button";
-import { ContactComponent } from './components/contact/contact.component';
-import { MyGitComponent } from './components/my-git/my-git.component';
+import {ContactComponent} from './components/contact/contact.component';
+import {MyGitComponent} from './components/my-git/my-git.component';
 import {MatCardModule} from "@angular/material/card";
+import {HttpClientModule} from '@angular/common/http';
+import {MatTableModule} from "@angular/material/table";
 
 const routes: Routes = [
   {path: 'main-page', component: MainPageComponent},
@@ -34,6 +36,7 @@ const routes: Routes = [
     MyGitComponent
   ],
   imports: [
+    HttpClientModule,
     RouterModule.forRoot(routes),
     BrowserModule,
     MatIconModule,
@@ -45,7 +48,8 @@ const routes: Routes = [
       registrationStrategy: 'registerWhenStable:30000'
     }),
     MatButtonModule,
-    MatCardModule
+    MatCardModule,
+    MatTableModule
   ],
   providers: [],
   bootstrap: [AppComponent]
