@@ -10,12 +10,12 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {AboutMeComponent} from './components/about-me/about-me.component';
 import {ServiceWorkerModule} from '@angular/service-worker';
 import {environment} from '../environments/environment';
-import {MatButtonModule} from "@angular/material/button";
+import {MatLegacyButtonModule as MatButtonModule} from "@angular/material/legacy-button";
 import {ContactComponent} from './components/contact/contact.component';
 import {MyGitComponent} from './components/my-git/my-git.component';
-import {MatCardModule} from "@angular/material/card";
+import {MatLegacyCardModule as MatCardModule} from "@angular/material/legacy-card";
 import {HttpClientModule} from '@angular/common/http';
-import {MatTableModule} from "@angular/material/table";
+import {MatLegacyTableModule as MatTableModule} from "@angular/material/legacy-table";
 
 const routes: Routes = [
   {path: 'main-page', component: MainPageComponent},
