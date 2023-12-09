@@ -21,6 +21,7 @@
     "@angular/platform-browser-dynamic": "^17.0.4",
     "@angular/router": "^17.0.4",
     "@angular/service-worker": "^17.0.4",
+    "marked": "^11.0.1",
     "mat-icon-import": "^0.1.1",
     "rxjs": "~7.8.1",
     "tslib": "^2.3.0",

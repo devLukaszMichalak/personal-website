@@ -10,11 +10,11 @@ import { AboutMeComponent } from './components/about-me/about-me.component';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
 import { ContactComponent } from './components/contact/contact.component';
-import { MyGitComponent } from './components/my-git/my-git.component';
 import { HttpClientModule } from '@angular/common/http';
 import { MatCardModule } from '@angular/material/card';
 import { MatTableModule } from '@angular/material/table';
 import { MatButtonModule } from '@angular/material/button';
+import { MyGitComponent } from './components/my-git/components/my-git.component';
 
 const routes: Routes = [
   {path: 'main-page', component: MainPageComponent},

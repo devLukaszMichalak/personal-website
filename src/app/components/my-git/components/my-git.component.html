@@ -1,0 +1,7 @@
+<div class="readme-container">
+    <h1>Some of my projects</h1>
+    @for (readmeFile of readMeFiles(); track readmeFile) {
+        <hr *ngIf="!$first"/>
+        <div [innerHTML]="readmeFile"></div>
+    }
+</div>
