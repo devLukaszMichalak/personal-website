@@ -3,7 +3,7 @@ import { catchError, first, from, map, mergeMap, Observable, of, switchMap, toAr
 import { marked } from 'marked';
 import { fromPromise } from 'rxjs/internal/observable/innerFrom';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { environment } from '../../../../environments/environment';
+import { environment } from '../../../environments/environment';
 import { GitHubRepo } from '../types/git-hub-repo';
 import { GitHubContent } from '../types/git-hub-content';
 
@@ -22,6 +22,13 @@ export class MyGitService {
   public get repos() {
     return this.httpClient.get<any[]>('https://api.github.com/users/devLukaszMichalak/repos', {headers: this.headers})
       .pipe(
+        map((reposList: GitHubRepo[]) => {
+          return reposList.sort((a, b) => {
+            const dateA = new Date(a.pushed_at).getTime();
+            const dateB = new Date(b.pushed_at).getTime();
+            return dateB - dateA;
+          });
+        }),
         switchMap((reposList: GitHubRepo[]) =>
           from(reposList).pipe(
             map(repo => repo.contents_url.substring(0, repo.contents_url.length - 7) + 'README.md?ref=main'),
@@ -36,7 +43,7 @@ export class MyGitService {
   }
   
   private getFileContent = (url: string) => this.httpClient.get<GitHubContent>(url, {headers: this.headers})
-    .pipe(catchError(err => of({content: btoa('### Brak readme.md')})));
+    .pipe(catchError(() => of({content: btoa('### Brak readme.md')})));
   
   private b64DecodeUnicode = (str: string) => decodeURIComponent(
     atob(str)

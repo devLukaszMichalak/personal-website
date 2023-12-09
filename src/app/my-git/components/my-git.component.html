@@ -1,7 +1,11 @@
 <div class="readme-container">
-    <h1>Some of my projects</h1>
+    <h1>Some of my projects:</h1>
     @for (readmeFile of readMeFiles(); track readmeFile) {
         <hr *ngIf="!$first"/>
         <div [innerHTML]="readmeFile"></div>
+    } @empty {
+        <div class="spinner">
+            <mat-spinner color="primary"/>
+        </div>
     }
 </div>
