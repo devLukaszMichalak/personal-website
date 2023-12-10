@@ -1,6 +1,11 @@
 .content {
+  margin-top: 25px;
   display: flex;
-  margin: 20px auto;
   align-items: center;
   justify-content: center;
+
+  mat-card {
+    max-width: 90vw;
+  }
 }
+

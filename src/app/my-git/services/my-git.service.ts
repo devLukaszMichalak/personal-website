@@ -22,15 +22,9 @@ export class MyGitService {
   public get repos() {
     return this.httpClient.get<any[]>('https://api.github.com/users/devLukaszMichalak/repos', {headers: this.headers})
       .pipe(
-        map((reposList: GitHubRepo[]) => {
-          return reposList.sort((a, b) => {
-            const dateA = new Date(a.pushed_at).getTime();
-            const dateB = new Date(b.pushed_at).getTime();
-            return dateB - dateA;
-          });
-        }),
-        switchMap((reposList: GitHubRepo[]) =>
-          from(reposList).pipe(
+        map((repoList: GitHubRepo[]) => repoList.sort(this.sortByLastCommit())),
+        switchMap((repoList: GitHubRepo[]) =>
+          from(repoList).pipe(
             map(repo => repo.contents_url.substring(0, repo.contents_url.length - 7) + 'README.md?ref=main'),
             mergeMap(url => this.getFileContent(url)),
             map(readmeObj => this.b64DecodeUnicode(readmeObj.content)),
@@ -40,6 +34,14 @@ export class MyGitService {
         ),
         first()
       );
+  }
+  
+  private sortByLastCommit() {
+    return (a: GitHubRepo, b: GitHubRepo) => {
+      const dateA = new Date(a.pushed_at).getTime();
+      const dateB = new Date(b.pushed_at).getTime();
+      return dateB - dateA;
+    };
   }
   
   private getFileContent = (url: string) => this.httpClient.get<GitHubContent>(url, {headers: this.headers})

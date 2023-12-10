@@ -1,14 +1,11 @@
-/* You can add global styles to this file, and also import other style files */
-
-html, body {
-    height: 100%;
-}
-
 body {
     margin: 0;
+    padding: 0;
+    height: 100vh;
+    width: 100vw;
     font-family: Roboto, "Helvetica Neue", sans-serif;
 }
 
 .readme-container img {
-    max-width: 90vw;
+    max-width: 74vw;
 }
