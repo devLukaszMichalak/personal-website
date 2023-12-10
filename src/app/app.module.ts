@@ -19,8 +19,8 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 const routes: Routes = [
   {path: 'my-git', component: MyGitComponent},
   {path: 'contact', component: ContactComponent},
-  {path: '', redirectTo: 'main-page', pathMatch: 'full'},
-  {path: '**', redirectTo: 'main-page', pathMatch: 'full'}
+  {path: '', redirectTo: 'my-git', pathMatch: 'full'},
+  {path: '**', redirectTo: 'my-git', pathMatch: 'full'}
 ];
 
 @NgModule({

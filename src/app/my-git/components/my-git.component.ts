@@ -5,7 +5,7 @@ import { toSignal } from '@angular/core/rxjs-interop';
 @Component({
   selector: 'app-my-git',
   templateUrl: './my-git.component.html',
-  styleUrls: ['./my-git.component.css']
+  styleUrls: ['./my-git.component.scss']
 })
 export class MyGitComponent {
   
