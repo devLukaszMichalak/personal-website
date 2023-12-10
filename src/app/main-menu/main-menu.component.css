@@ -1,22 +1,5 @@
-.main-menu {
-position: absolute;
-top: 0;
-left: 0;
-right: 0;
-height: 50px;
-display: flex;
-align-items: center;
-justify-content: flex-start;
-background-color: rgba(0, 0, 0, 0.75);
-webkit-backdrop-filter: saturate(200%) blur(20px);
+mat-toolbar {
+  display: flex;
+  align-items: center;
+  justify-content: start;
 }
-.mat-button {
-  color: floralwhite;
-}
-
-a,
-a:visited,
-a:hover {
-  text-decoration: none;
-}
-

@@ -8,3 +8,7 @@
   justify-content: center;
   align-items: center;
 }
+
+mat-card {
+  margin: 5vh 5vw;
+}
