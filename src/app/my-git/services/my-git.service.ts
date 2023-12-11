@@ -26,7 +26,7 @@ export class MyGitService {
   }
   
   private getRepos() {
-    return this.httpClient.get<any[]>('https://api.github.com/users/devLukaszMichalak/repos', {headers: MyGitService.headers})
+    return this.httpClient.get<GitHubRepo[]>('https://api.github.com/users/devLukaszMichalak/repos', {headers: MyGitService.headers})
       .pipe(
         map((repoList: GitHubRepo[]) => repoList.sort(this.sortByLastCommit())),
         switchMap((repoList: GitHubRepo[]) =>

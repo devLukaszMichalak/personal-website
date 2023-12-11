@@ -1,4 +1,4 @@
-import { Component, inject, OnInit } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { Router } from '@angular/router';
 
 @Component({
@@ -7,11 +7,11 @@ import { Router } from '@angular/router';
   styleUrls: ['./main-menu.component.scss']
 })
 export class MainMenuComponent {
-
+  
   private router = inject(Router);
   
   isSelected(menuOption: string) {
-    return this.router.url.includes(menuOption)
+    return this.router.url.includes(menuOption);
   }
   
 }
