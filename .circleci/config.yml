@@ -24,9 +24,8 @@ jobs:
           name: Inject environment.prod.ts
           command: |
             mkdir -p src/environments
-            touch src/environments/environments.ts
-            touch src/environments/environments.prod.ts
-            echo ${ENV} > src/environments/environment.prod.ts
+            echo ${ENV} > src/environments/environment.ts
+            echo ${ENV_PROD} > src/environments/environment.prod.ts
       - run:
           name: Build project
           command: npm run build-prod
