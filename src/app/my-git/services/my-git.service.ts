@@ -1,4 +1,4 @@
-import { inject, Injectable } from '@angular/core';
+import { computed, inject, Injectable, Signal } from '@angular/core';
 import { catchError, first, from, map, mergeMap, Observable, of, switchMap, toArray } from 'rxjs';
 import { marked } from 'marked';
 import { fromPromise } from 'rxjs/internal/observable/innerFrom';
@@ -6,21 +6,27 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { environment } from '../../../environments/environment';
 import { GitHubRepo } from '../types/git-hub-repo';
 import { GitHubContent } from '../types/git-hub-content';
+import { toSignal } from '@angular/core/rxjs-interop';
 
 @Injectable({
   providedIn: 'root'
 })
 export class MyGitService {
   
-  private httpClient = inject(HttpClient);
-  
-  private readonly headers = new HttpHeaders({
+  private static readonly headers = new HttpHeaders({
     'Authorization': `Bearer ${environment.githubToken}`,
     'X-GitHub-Api-Version': '2022-11-28'
   });
   
-  public get repos() {
-    return this.httpClient.get<any[]>('https://api.github.com/users/devLukaszMichalak/repos', {headers: this.headers})
+  private httpClient = inject(HttpClient);
+  private _readmeFiles: Signal<string[]> = toSignal(this.getRepos(), {initialValue: []});
+
+  public get readmeFiles(): Signal<string[]> {
+    return computed(() => this._readmeFiles())
+  }
+  
+  private getRepos() {
+    return this.httpClient.get<any[]>('https://api.github.com/users/devLukaszMichalak/repos', {headers: MyGitService.headers})
       .pipe(
         map((repoList: GitHubRepo[]) => repoList.sort(this.sortByLastCommit())),
         switchMap((repoList: GitHubRepo[]) =>
@@ -44,7 +50,7 @@ export class MyGitService {
     };
   }
   
-  private getFileContent = (url: string) => this.httpClient.get<GitHubContent>(url, {headers: this.headers})
+  private getFileContent = (url: string) => this.httpClient.get<GitHubContent>(url, {headers: MyGitService.headers})
     .pipe(catchError(() => of({content: btoa('### Brak readme.md')})));
   
   private b64DecodeUnicode = (str: string) => decodeURIComponent(
