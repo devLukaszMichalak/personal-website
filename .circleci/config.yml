@@ -21,9 +21,10 @@ jobs:
           paths:
             - ~/.npm
       - run:
-          name: Inject Firebase configuration into environments.ts
+          name: Inject environment.prod.ts
           command: |
             mkdir -p src/environments
+            touch src/environments/environments.ts
             touch src/environments/environments.prod.ts
             echo ${ENV} > src/environments/environment.prod.ts
       - run:
