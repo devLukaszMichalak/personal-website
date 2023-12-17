@@ -3,5 +3,5 @@ export type GitHubRepo = {
   private: boolean;
   pushed_at: Date;
   html_url: string;
-  contents_url: string
-}
+  contents_url: string;
+};

@@ -1,3 +1,3 @@
 export type GitHubContent = {
-  content: string
-}
+  content: string;
+};

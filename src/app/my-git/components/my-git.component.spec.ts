@@ -8,9 +8,8 @@ describe('MyGitComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ MyGitComponent ]
-    })
-    .compileComponents();
+      declarations: [MyGitComponent],
+    }).compileComponents();
 
     fixture = TestBed.createComponent(MyGitComponent);
     component = fixture.componentInstance;

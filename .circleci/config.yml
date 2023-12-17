@@ -27,6 +27,9 @@ jobs:
             echo ${ENV} > src/environments/environment.ts
             echo ${ENV_PROD} > src/environments/environment.prod.ts
       - run:
+          name: Check prettier
+          command: npx prettier . --check
+      - run:
           name: Build project
           command: npm run build-prod
       - run:
@@ -39,7 +42,6 @@ jobs:
             firebase deploy --only hosting
           environment:
             GOOGLE_APPLICATION_CREDENTIALS: "keys.json"
-
 
 workflows:
   build_and_deploy:

@@ -1,13 +1,12 @@
 <div class="readme-container">
-    <h1>Some of my projects:</h1>
-    @for (readmeFile of readmeFiles(); track readmeFile) {
-        <mat-card>
-            <mat-card-content><div [innerHTML]="readmeFile"></div></mat-card-content>
-        </mat-card>
-
-    } @empty {
-        <div class="spinner">
-            <mat-spinner color="primary"/>
-        </div>
-    }
+  <h1>Some of my projects:</h1>
+  @for (readmeFile of readmeFiles(); track readmeFile) {
+    <mat-card>
+      <mat-card-content><div [innerHTML]="readmeFile"></div></mat-card-content>
+    </mat-card>
+  } @empty {
+    <div class="spinner">
+      <mat-spinner color="primary" />
+    </div>
+  }
 </div>

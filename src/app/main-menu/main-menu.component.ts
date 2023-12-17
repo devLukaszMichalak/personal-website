@@ -4,14 +4,12 @@ import { Router } from '@angular/router';
 @Component({
   selector: 'app-main-menu',
   templateUrl: './main-menu.component.html',
-  styleUrls: ['./main-menu.component.scss']
+  styleUrls: ['./main-menu.component.scss'],
 })
 export class MainMenuComponent {
-  
-  private router = inject(Router);
-  
+  private router: Router = inject(Router);
+
   isSelected(menuOption: string) {
     return this.router.url.includes(menuOption);
   }
-  
 }

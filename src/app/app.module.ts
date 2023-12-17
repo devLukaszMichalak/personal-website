@@ -17,10 +17,10 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { MatToolbarModule } from '@angular/material/toolbar';
 
 const routes: Routes = [
-  {path: 'my-git', component: MyGitComponent},
-  {path: 'contact', component: ContactComponent},
-  {path: '', redirectTo: 'my-git', pathMatch: 'full'},
-  {path: '**', redirectTo: 'my-git', pathMatch: 'full'}
+  { path: 'my-git', component: MyGitComponent },
+  { path: 'contact', component: ContactComponent },
+  { path: '', redirectTo: 'my-git', pathMatch: 'full' },
+  { path: '**', redirectTo: 'my-git', pathMatch: 'full' },
 ];
 
 @NgModule({
@@ -28,7 +28,7 @@ const routes: Routes = [
     AppComponent,
     MainMenuComponent,
     ContactComponent,
-    MyGitComponent
+    MyGitComponent,
   ],
   imports: [
     HttpClientModule,
@@ -38,16 +38,15 @@ const routes: Routes = [
     BrowserAnimationsModule,
     ServiceWorkerModule.register('ngsw-worker.js', {
       enabled: environment.production,
-      registrationStrategy: 'registerWhenStable:30000'
+      registrationStrategy: 'registerWhenStable:30000',
     }),
     MatButtonModule,
     MatCardModule,
     MatTableModule,
     MatProgressSpinnerModule,
-    MatToolbarModule
+    MatToolbarModule,
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule {
-}
+export class AppModule {}
